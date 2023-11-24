@@ -53,6 +53,7 @@ TxRxWorkerSim::TxRxWorkerSim(
         config->BsRruAddr().c_str(), rem_port_id);
   }
   beacon_buffer_.resize(config->PacketLength());
+  kEnableSlowStart = cfg->EnableSlowStart();
 }
 
 TxRxWorkerSim::~TxRxWorkerSim() = default;

@@ -656,6 +656,7 @@ Config::Config(std::string jsonfilename)
   decode_thread_num_ = tdd_conf.value("decode_thread_num", 10);
   beam_thread_num_ = worker_thread_num_ - fft_thread_num_ - demul_thread_num_ -
                      decode_thread_num_;
+  enable_slow_start_ = tdd_conf.value("enable_slow_start", true);
 
   demul_block_size_ = tdd_conf.value("demul_block_size", 48);
   RtAssert(demul_block_size_ % kSCsPerCacheline == 0,

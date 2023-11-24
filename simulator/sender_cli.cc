@@ -18,9 +18,9 @@ DEFINE_string(
     conf_file,
     TOSTRING(PROJECT_DIRECTORY) "/files/config/ci/tddconfig-sim-ul.json",
     "Config filename");
-DEFINE_uint64(
-    enable_slow_start, 1,
-    "Send frames slower than the specified frame duration during warmup");
+// DEFINE_uint64(
+//     enable_slow_start, 1,
+//     "Send frames slower than the specified frame duration during warmup");
 
 int main(int argc, char* argv[]) {
   gflags::ParseCommandLineFlags(&argc, &argv, true);
@@ -34,7 +34,7 @@ int main(int argc, char* argv[]) {
     {
       auto sender = std::make_unique<Sender>(
           cfg.get(), FLAGS_num_threads, FLAGS_core_offset, FLAGS_frame_duration,
-          FLAGS_inter_frame_delay, FLAGS_enable_slow_start,
+          FLAGS_inter_frame_delay, cfg->EnableSlowStart(),
           FLAGS_server_mac_addr);
       sender->StartTx();
     }  // end context sender

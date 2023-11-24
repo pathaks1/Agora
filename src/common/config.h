@@ -199,6 +199,7 @@ class Config {
   inline size_t DemulThreadNum() const { return this->demul_thread_num_; }
   inline size_t DecodeThreadNum() const { return this->decode_thread_num_; }
   inline size_t BeamThreadNum() const { return this->beam_thread_num_; }
+  inline bool EnableSlowStart() const { return this->enable_slow_start_; }
   inline size_t DemulBlockSize() const { return this->demul_block_size_; }
 
   inline size_t DemulEventsPerSymbol() const {
@@ -828,6 +829,7 @@ class Config {
   size_t demul_thread_num_;
   size_t decode_thread_num_;
   size_t beam_thread_num_;
+  bool enable_slow_start_;
 
   size_t ue_core_offset_;
   size_t ue_worker_thread_num_;

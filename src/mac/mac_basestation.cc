@@ -34,9 +34,9 @@ DEFINE_string(fwd_udp_address, "", "Forward decoded mac data to address");
 DEFINE_uint64(fwd_udp_port, 0,
               "Forward decoded mac data port id (Set to 0 to disable)");
 
-DEFINE_uint64(
-    enable_slow_start, 0,
-    "Send frames slower than the specified frame duration during warmup");
+// DEFINE_uint64(
+//     enable_slow_start, 0,
+//     "Send frames slower than the specified frame duration during warmup");
 
 int main(int argc, char* argv[]) {
   gflags::SetVersionString(GetAgoraProjectVersion());
@@ -111,7 +111,7 @@ int main(int argc, char* argv[]) {
                       std::placeholders::_1),
             thread_start, FLAGS_num_sender_worker_threads,
             FLAGS_num_sender_update_threads, FLAGS_frame_duration, 0,
-            FLAGS_enable_slow_start, true);
+            cfg->EnableSlowStart(), true);
         thread_start += num_total_sender_threads;
         sender->StartTxfromMain(frame_start, frame_end);
       }
