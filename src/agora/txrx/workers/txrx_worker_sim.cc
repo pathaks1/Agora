@@ -12,7 +12,7 @@
 #include "logger.h"
 #include "message.h"
 
-static constexpr bool kEnableSlowStart = true;
+static bool kEnableSlowStart = true;
 static constexpr bool kDebugPrintBeacon = false;
 
 static constexpr size_t kSlowStartThresh1 = kFrameWnd;
